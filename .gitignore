@@ -25,7 +25,6 @@
 /.tox/
 /bower_components/
 /develop-eggs/
-/dist/
 /eggs/
 /node_modules/
 /sdist/
@@ -34,6 +33,3 @@ nosetests.xml
 npm-debug.log
 pip-log.txt
 testem.*.*.*.json
-
-
-/public/dist/
