@@ -1,6 +1,6 @@
-export default function defineLateArrival(React) {
+const defineLateArrival = (React) => {
 
-  return class LateArrival extends React.Component {
+  class LateArrival extends React.Component {
 
     constructor() {
       super();
@@ -82,4 +82,8 @@ export default function defineLateArrival(React) {
       transitions: React.PropTypes.array,
     },
   });
+
+  return LateArrival;
 };
+
+module.exports = defineLateArrival;

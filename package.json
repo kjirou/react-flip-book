@@ -4,7 +4,7 @@
   "description": "A React Component for making transitions to the current state",
   "main": "dist/index.js",
   "scripts": {
-    "build": "gulp build",
+    "build": "babel",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,24 +23,6 @@
   },
   "homepage": "https://github.com/kjirou/react-late-arrival#readme",
   "devDependencies": {
-    "autoprefixer": "6.1.0",
-    "babel": "6.3.13",
-    "babel-preset-es2015": "6.3.13",
-    "babel-preset-react": "6.3.13",
-    "babelify": "7.2.0",
-    "browser-sync": "2.9.12",
-    "browserify": "12.0.1",
-    "fixpack": "2.2.0",
-    "gulp": "3.9.0",
-    "gulp-concat": "2.6.0",
-    "gulp-image-data-uri": "1.2.1",
-    "gulp-postcss": "6.0.1",
-    "gulp-rename": "1.2.2",
-    "gulp-shell": "0.5.1",
-    "http-server": "0.8.5",
-    "node-notifier": "4.3.1",
-    "run-sequence": "1.1.5",
-    "vinyl-source-stream": "1.1.0",
-    "watchify": "3.6.0"
+    "babel-cli": "6.4.5"
   }
 }
