@@ -1,3 +1,8 @@
+'use strict';
+
+const React = require('react');
+
+
 class LateArrival extends React.Component {
 
   constructor() {
