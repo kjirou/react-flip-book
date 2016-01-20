@@ -4,7 +4,7 @@
   "description": "A React Component for making transitions to the current state",
   "main": "dist/index.js",
   "scripts": {
-    "build": "babel",
+    "build": "babel src/index.js > dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
