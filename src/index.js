@@ -86,4 +86,4 @@ const defineLateArrival = (React) => {
   return LateArrival;
 };
 
-module.exports = defineLateArrival;
+export default defineLateArrival;
