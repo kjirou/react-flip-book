@@ -46,7 +46,7 @@ function createBundler(options) {
   });
 
   var bundler = browserify(JS_INDEX_FILE_PATH, browserifyOptions);
-  bundler.exclude('react');
+  //bundler.exclude('react');
 
   if (transformer) {
     bundler.transform(transformer);
