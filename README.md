@@ -1,6 +1,6 @@
 # react-late-arrival
 
-A React Component for making transitions to the current state
+A React component for making transitions to the real state
 
 
 ## Installation

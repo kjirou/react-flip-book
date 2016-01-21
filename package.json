@@ -1,11 +1,11 @@
 {
   "name": "react-late-arrival",
   "version": "0.0.0",
-  "description": "A React Component for making transitions to the current state",
+  "description": "A React component for making transitions to the real state",
   "main": "dist/index.js",
   "scripts": {
     "build": "babel src/index.js > dist/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -24,9 +24,10 @@
   "homepage": "https://github.com/kjirou/react-late-arrival#readme",
   "peerDependencies": "*",
   "devDependencies": {
-    "babel-cli": "6.4.5"
-  },
-  "dependencies": {
-    "babel-preset-es2015": "^6.3.13"
+    "babel-cli": "6.4.5",
+    "babel-preset-es2015": "6.3.13"
+    "mocha": "2.3.4",
+    "react": "0.14.6",
+    "react-dom": "0.14.6"
   }
 }
