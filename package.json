@@ -22,7 +22,7 @@
     "url": "https://github.com/kjirou/react-late-arrival/issues"
   },
   "homepage": "https://github.com/kjirou/react-late-arrival#readme",
-  "peerDependencies": "^0.14",
+  "peerDependencies": "*",
   "devDependencies": {
     "babel-cli": "6.4.5"
   }
