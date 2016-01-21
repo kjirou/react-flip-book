@@ -1,71 +1,96 @@
 'use strict';
 
-const React = require('react');
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-class LateArrival extends React.Component {
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-  constructor() {
-    super();
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-    this._isInTransition = false;
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var React = require('react');
+
+var LateArrival = function (_React$Component) {
+  _inherits(LateArrival, _React$Component);
+
+  function LateArrival() {
+    _classCallCheck(this, LateArrival);
+
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(LateArrival).call(this));
+
+    _this._isInTransition = false;
+    return _this;
   }
 
-  _runTransitions(transitions) {
-    this._isInTransition = true;
-    transitions = transitions.slice();
+  _createClass(LateArrival, [{
+    key: '_runTransitions',
+    value: function _runTransitions(transitions) {
+      var _this2 = this;
 
-    Promise.resolve().then(() => {
-      return transitions.reduce((lastPromise, transition) => {
-        // TODO: Could not transpile by babel@6.3.13
-        //const {
-        //  duration = 0,
-        //  ...transitionalProps,
-        //} = transition;
-        const duration = transition.duration || 0;
-        const transitionalProps = {};
-        Object.keys(transition).forEach(key => {
-          if (key !== 'duration') {
-            transitionalProps[key] = transition[key];
-          }
-        });
+      this._isInTransition = true;
+      transitions = transitions.slice();
 
-        return lastPromise.then(() => {
-          return new Promise(resolve => {
-            this.setState({ transitionalProps });
-            this.forceUpdate();
-            setTimeout(resolve, duration);
+      Promise.resolve().then(function () {
+        return transitions.reduce(function (lastPromise, transition) {
+          // TODO: Could not transpile by babel@6.3.13
+          //const {
+          //  duration = 0,
+          //  ...transitionalProps,
+          //} = transition;
+          var duration = transition.duration || 0;
+          var transitionalProps = {};
+          Object.keys(transition).forEach(function (key) {
+            if (key !== 'duration') {
+              transitionalProps[key] = transition[key];
+            }
           });
-        });
-      }, Promise.resolve());
-    }).then(() => {
-      // TODO: Restart, if (this.props.transitions.length > 0)
-      this.setState({ transitionalProps: this.props.realProps });
-      this.forceUpdate();
-      this._isInTransition = false;
-    }).catch(err => console.error(err));
-  }
 
-  componentDidMount() {
-    if (this.props.transitions.length > 0) {
-      this._runTransitions(this.props.transitions);
+          return lastPromise.then(function () {
+            return new Promise(function (resolve) {
+              _this2.setState({ transitionalProps: transitionalProps });
+              _this2.forceUpdate();
+              setTimeout(resolve, duration);
+            });
+          });
+        }, Promise.resolve());
+      }).then(function () {
+        // TODO: Restart, if (this.props.transitions.length > 0)
+        _this2.setState({ transitionalProps: _this2.props.realProps });
+        _this2.forceUpdate();
+        _this2._isInTransition = false;
+      }).catch(function (err) {
+        return console.error(err);
+      });
     }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.transitions.length > 0) {
-      this._runTransitions(nextProps.transitions);
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      if (this.props.transitions.length > 0) {
+        this._runTransitions(this.props.transitions);
+      }
     }
-  }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      if (nextProps.transitions.length > 0) {
+        this._runTransitions(nextProps.transitions);
+      }
+    }
+  }, {
+    key: 'shouldComponentUpdate',
+    value: function shouldComponentUpdate() {
+      return !this._isInTransition;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var actualProps = this._isInTransition ? this.state.transitionalProps : this.props.realProps;
+      return this.props.children(actualProps);
+    }
+  }]);
 
-  shouldComponentUpdate() {
-    return !this._isInTransition;
-  }
-
-  render() {
-    const actualProps = this._isInTransition ? this.state.transitionalProps : this.props.realProps;
-    return this.props.children(actualProps);
-  }
-}
+  return LateArrival;
+}(React.Component);
 
 Object.assign(LateArrival, {
   defaultProps: {
