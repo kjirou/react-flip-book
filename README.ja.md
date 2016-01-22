@@ -4,8 +4,6 @@
 
 A React component for making transitions to the real state
 
-([日本語](https://github.com/kjirou/react-late-arrival/README.ja.md))
-
 
 ## Installation
 
@@ -84,7 +82,6 @@ In this case, the component will change like this:
 ```
 
 
-## Features
+## Feature
 
-- Without changing the original components, you can apply a simple flip animation, such as a cartoon
-- If you set `[]` to `transitions`, that is same as normal rendering
+Without changing the original components, you can apply a simple flip animation, such as a cartoon.
