@@ -7,7 +7,8 @@ A React component for making transitions to the real state
 
 ## Installation
 
-It can not be used directly by the browser. 
+It can not be used directly by the browser.
+
 You need to use a bundler like [browserify](https://github.com/substack/node-browserify)/[webpack](https://github.com/webpack/webpack).
 
 ```bash
@@ -29,7 +30,7 @@ class MyAwesomeMessage extends React.Component {
 }
 ```
 
-..then wrap by `LateArrival` meta-component with `realProps` and `transitions` props.
+..then wrap by `LateArrival` meta-component with both `realProps` and `transitions`.
 
 ```js
 import LateArrival from 'react-late-arrival';
@@ -67,15 +68,20 @@ In this case, the component will change like this:
 ```
 1. red "One"
   |
-(1000)
+(1000ms)
   |
 2. green "Two"
   |
-(500)
+(500ms)
   |
 3. blue "Three"
   |
-(250)
+(250ms)
   |
 4. black "Finish"
 ```
+
+
+## Feature
+
+Without changing the original components, you can apply a simple flip animation, such as a cartoon.
