@@ -7,7 +7,7 @@ A React component for making transitions to the real state
 
 ## Installation
 
-It can not be used directly by the browser.
+It can not be used directly by the browser. 
 You need to use a bundler like [browserify](https://github.com/substack/node-browserify)/[webpack](https://github.com/webpack/webpack).
 
 ```bash
@@ -15,24 +15,21 @@ npm install --save react-late-arrival
 ```
 
 
-## Goal
-
-
 ## Usage
+
+If you animate this component..
 
 ```js
 import React from 'react';
 
-class ColoredMessage extends React.Component {
+class MyAwesomeMessage extends React.Component {
   render() {
     return <div style={ { color: this.props.color } }>{ this.props.message }</div>;
   }
 }
 ```
 
-```js
-const message = <ColoredMessage color="black" message="hello, black" />;
-```
+..then wrap by `LateArrival` meta-component with `realProps` and `transitions` props.
 
 ```js
 import LateArrival from 'react-late-arrival';
@@ -60,7 +57,25 @@ const transitions = [
   },
 ];
 
-const transitionalMessage = <LateArrival>
-  { props => <ColoredMessage { ...props } /> }
+const transitionalMessage = <LateArrival realProps={ realProps } transitions={ transitions }>
+  { props => <MyAwesomeMessage { ...props } /> }
 </LateArrival>;
+```
+
+In this case, the component will change like this:
+
+```
+1. red "One"
+  |
+(1000)
+  |
+2. green "Two"
+  |
+(500)
+  |
+3. blue "Three"
+  |
+(250)
+  |
+4. black "Finish"
 ```
