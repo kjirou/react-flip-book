@@ -4,21 +4,24 @@
 
 A React component for making transitions to the real state
 
+([English](https://github.com/kjirou/react-late-arrival))
 
-## Installation
 
-It can not be used directly by the browser.
+## インストール
 
-You need to use a bundler like [browserify](https://github.com/substack/node-browserify)/[webpack](https://github.com/webpack/webpack).
+直接ブラウザから読み込むことはできません。
+
+[browserify](https://github.com/substack/node-browserify) や [webpack](https://github.com/webpack/webpack) などを使って下さい。
+
 
 ```bash
 npm install --save react-late-arrival
 ```
 
 
-## Usage
+## 使い方
 
-If you animate this component..
+例えば、このコンポーネントを動かしたい場合、
 
 ```js
 import React from 'react';
@@ -30,7 +33,7 @@ class MyAwesomeMessage extends React.Component {
 }
 ```
 
-..then wrap by `LateArrival` meta-component with both `realProps` and `transitions`.
+以下のように、メタな `LateArrival` コンポーネントで対象コンポーネントを包みます。
 
 ```js
 import LateArrival from 'react-late-arrival';
@@ -63,7 +66,7 @@ const transitionalMessage = <LateArrival realProps={ realProps } transitions={ t
 </LateArrival>;
 ```
 
-In this case, the component will change like this:
+この場合、`MyAwesomeMessage` の要素は、以下の様にアニメーションします。
 
 ```
 1. red "One"
@@ -82,6 +85,7 @@ In this case, the component will change like this:
 ```
 
 
-## Feature
+## 特徴
 
-Without changing the original components, you can apply a simple flip animation, such as a cartoon.
+- アニメーションである、元のコンポーネントを変更する必要はありません。そのまま使えます。
+- `transitions` に渡す値を `[]` にすれば、通常の描画処理と全く同じになります。

@@ -4,7 +4,8 @@
 
 A React component for making transitions to the real state
 
-([日本語](https://github.com/kjirou/react-late-arrival/README.ja.md))
+([日本語](https://github.com/kjirou/react-late-arrival/blob/master/README.ja.md))
+
 
 
 ## Installation
