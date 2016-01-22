@@ -87,5 +87,5 @@ const transitionalMessage = <LateArrival realProps={ realProps } transitions={ t
 
 ## 特徴
 
-- アニメーションである、元のコンポーネントを変更する必要はありません。そのまま使えます。
+- アニメーション対象であるコンポーネントの設計を修正する必要がありません。
 - `transitions` に渡す値を `[]` にすれば、通常の描画処理と全く同じになります。
