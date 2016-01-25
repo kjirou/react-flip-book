@@ -1,10 +1,10 @@
-# react-late-arrival
+# react-flip-book
 
-[![npm version](https://badge.fury.io/js/react-late-arrival.svg)](http://badge.fury.io/js/react-late-arrival)
+[![npm version](https://badge.fury.io/js/react-flip-book.svg)](http://badge.fury.io/js/react-flip-book)
 
-A React component for making transitions to the real state
+A React component for making state transitions from a list of props
 
-([日本語](https://github.com/kjirou/react-late-arrival/blob/master/README.ja.md))
+([日本語](https://github.com/kjirou/react-flip-book/blob/master/README.ja.md))
 
 
 
@@ -15,7 +15,7 @@ It can not be used directly by the browser.
 You need to use a bundler like [browserify](https://github.com/substack/node-browserify)/[webpack](https://github.com/webpack/webpack).
 
 ```bash
-npm install --save react-late-arrival
+npm install --save react-flip-book
 ```
 
 
@@ -33,10 +33,10 @@ class MyAwesomeMessage extends React.Component {
 }
 ```
 
-..then wrap by `LateArrival` meta-component with both `realProps` and `transitions`.
+..then wrap by `FlipBook` meta-component with both `realProps` and `transitions`.
 
 ```js
-import LateArrival from 'react-late-arrival';
+import FlipBook from 'react-flip-book';
 
 const realProps = {
   color: 'black',
@@ -61,9 +61,9 @@ const transitions = [
   },
 ];
 
-const transitionalMessage = <LateArrival realProps={ realProps } transitions={ transitions }>
+const transitionalMessage = <FlipBook realProps={ realProps } transitions={ transitions }>
   { props => <MyAwesomeMessage { ...props } /> }
-</LateArrival>;
+</FlipBook>;
 ```
 
 In this case, the component will change like this:
