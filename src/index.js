@@ -3,7 +3,7 @@
 const React = require('react');
 
 
-class LateArrival extends React.Component {
+class FlipBook extends React.Component {
 
   constructor() {
     super();
@@ -74,7 +74,7 @@ class LateArrival extends React.Component {
   }
 }
 
-Object.assign(LateArrival, {
+Object.assign(FlipBook, {
   defaultProps: {
     realProps: {},
     transitions: [],
@@ -86,4 +86,4 @@ Object.assign(LateArrival, {
   },
 });
 
-module.exports = LateArrival;
+module.exports = FlipBook;

@@ -10,19 +10,19 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var React = require('react');
 
-var LateArrival = function (_React$Component) {
-  _inherits(LateArrival, _React$Component);
+var FlipBook = function (_React$Component) {
+  _inherits(FlipBook, _React$Component);
 
-  function LateArrival() {
-    _classCallCheck(this, LateArrival);
+  function FlipBook() {
+    _classCallCheck(this, FlipBook);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(LateArrival).call(this));
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(FlipBook).call(this));
 
     _this._isInTransition = false;
     return _this;
   }
 
-  _createClass(LateArrival, [{
+  _createClass(FlipBook, [{
     key: '_runTransitions',
     value: function _runTransitions(transitions) {
       var _this2 = this;
@@ -89,10 +89,10 @@ var LateArrival = function (_React$Component) {
     }
   }]);
 
-  return LateArrival;
+  return FlipBook;
 }(React.Component);
 
-Object.assign(LateArrival, {
+Object.assign(FlipBook, {
   defaultProps: {
     realProps: {},
     transitions: []
@@ -104,5 +104,5 @@ Object.assign(LateArrival, {
   }
 });
 
-module.exports = LateArrival;
+module.exports = FlipBook;
 
