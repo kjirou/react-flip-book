@@ -1,6 +1,6 @@
 'use strict';
 
-var FlipBook = require('./lib/react-flip-book').default;
+var FlipBook = require('./lib/react-flip-book');
 
 /*
  * Generate transitions for react-flip-book
@@ -25,5 +25,6 @@ var generateTransitions = function generateTransitions(defaultProps, transitionD
   });
 };
 
-exports.default = FlipBook;
-exports.generateTransitions = generateTransitions;
+FlipBook.generateTransitions = generateTransitions;
+
+module.exports = FlipBook;

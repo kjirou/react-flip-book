@@ -1,6 +1,6 @@
 'use strict';
 
-const FlipBook = require('./lib/react-flip-book').default;
+const FlipBook = require('./lib/react-flip-book');
 
 
 /*
@@ -27,5 +27,6 @@ const generateTransitions = (defaultProps, transitionDiffs) => {
 };
 
 
-exports.default = FlipBook;
-exports.generateTransitions = generateTransitions;
+FlipBook.generateTransitions = generateTransitions;
+
+module.exports = FlipBook;

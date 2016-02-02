@@ -82,4 +82,4 @@ Object.assign(FlipBook, {
 });
 
 
-exports.default = FlipBook;
+module.exports = FlipBook;
