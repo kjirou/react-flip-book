@@ -4,7 +4,7 @@
   "description": "A React component for making state transitions from a list of props",
   "main": "dist/index.js",
   "scripts": {
-    "build": "babel src/index.js > dist/index.js",
+    "build": "babel src --out-dir dist",
     "test": "mocha"
   },
   "repository": {
