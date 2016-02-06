@@ -2,9 +2,12 @@
 
 const assert = require('assert');
 
-const FlipBook = require('../src').default;
-const generateTransition = require('../src').generateTransition;
-const alterTransition = require('../src').alterTransition;
+const FlipBook = require('../src');
+const {
+  alterTransition,
+  assertTransition,
+  generateTransition,
+} = FlipBook;
 
 
 describe('react-flip-book', () => {
@@ -126,6 +129,20 @@ describe('react-flip-book', () => {
           },
         ]
       );
+    });
+  });
+
+
+  describe('assertTransition', () => {
+
+    it('should be', () => {
+      assert.throws(() => {
+        assertTransition(null);
+      }, /array/);
+
+      assert.throws(() => {
+        assertTransition([{ x: 1, duration: 1 }, { x: 2 }]);
+      }, /duration/);
     });
   });
 

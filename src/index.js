@@ -28,6 +28,16 @@ const generateTransition = (defaultProps, transitionDiffs) => {
   });
 };
 
+export const assertTransition = (transition) => {
+  if (!Array.isArray(transition)) {
+    throw new Error('A transition should be an array');
+  }
+
+  if (transition.some(props => typeof props.duration !== 'number')) {
+    throw new Error('A transition should include "duration" property for each item');
+  }
+};
+
 /*
  * Alter a transition by any turning points containing keyframes
  *
@@ -76,7 +86,8 @@ const generateTransition = (defaultProps, transitionDiffs) => {
  * @return {Array<Object>}
  */
 const alterTransition = (transition, alterations) => {
-  // TODO: assert undefined keyframes and durations
+  assertTransition(transition);
+
   const keyframeObjects = [];
   const appendKeyframeObject = (keyframe, props, alteration) => {
     keyframeObjects.push({
@@ -146,6 +157,7 @@ const totalDurations = (...transitionList) => {
 
 Object.assign(FlipBook, {
   alterTransition,
+  assertTransition,
   generateTransition,
 });
 module.exports = FlipBook;
