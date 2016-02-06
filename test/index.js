@@ -262,6 +262,12 @@ describe('react-flip-book', () => {
         },
       ]);
     });
+
+    it('assertions', () => {
+      assert.throws(() => {
+        alterTransition([], [{ x: 1, keyframe: 1 }, { x: 2 }]);
+      }, /keyframe/);
+    });
   });
 
   describe('totalDurations', () => {

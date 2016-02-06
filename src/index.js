@@ -88,6 +88,10 @@ export const assertTransition = (transition) => {
 const alterTransition = (transition, alterations) => {
   assertTransition(transition);
 
+  if (alterations.some(alteration => typeof alteration.keyframe !== 'number')) {
+    throw new Error('A alteration should include "keyframe" property for each item');
+  }
+
   const keyframeObjects = [];
   const appendKeyframeObject = (keyframe, props, alteration) => {
     keyframeObjects.push({
