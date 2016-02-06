@@ -151,7 +151,9 @@ const alterTransition = (transition, alterations) => {
   ;
 };
 
-const totalDurations = (...transitionList) => {
+export const totalDurations = (transition) => {
+  assertTransition(transition);
+  return transition.reduce((memo, props) => { memo + props.duration }, 0);
 };
 
 
@@ -159,5 +161,6 @@ Object.assign(FlipBook, {
   alterTransition,
   assertTransition,
   generateTransition,
+  totalDurations,
 });
 module.exports = FlipBook;

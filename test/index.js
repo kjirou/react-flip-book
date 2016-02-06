@@ -7,6 +7,7 @@ const {
   alterTransition,
   assertTransition,
   generateTransition,
+  totalDurations,
 } = FlipBook;
 
 
@@ -260,6 +261,13 @@ describe('react-flip-book', () => {
           y: 3,
         },
       ]);
+    });
+  });
+
+  describe('totalDurations', () => {
+
+    it('should be', () => {
+      assert.strictEqual(totalDurations([{ duration: 1 }, { duration: 2 }], 3));
     });
   });
 });
