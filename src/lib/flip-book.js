@@ -1,9 +1,9 @@
-'use strict';
+import React, { Component } from 'react';
 
-const React = require('react');
+import { assertTransition } from './utils';
 
 
-class FlipBook extends React.Component {
+export default class FlipBook extends Component {
 
   constructor() {
     super();
@@ -11,13 +11,13 @@ class FlipBook extends React.Component {
     this._isInTransition = false;
   }
 
-  _runTransitions(transitions) {
+  _runTransitions(transition) {
     this._isInTransition = true;
-    transitions = transitions.slice();
+    transition = transition.slice();
 
     Promise.resolve()
       .then(() => {
-        return transitions.reduce((lastPromise, transition) => {
+        return transition.reduce((lastPromise, transition) => {
           const duration = transition.duration || 0;
           const transitionalProps = {};
           Object.keys(transition).forEach(key => {
@@ -38,7 +38,7 @@ class FlipBook extends React.Component {
         }, Promise.resolve());
       })
       .then(() => {
-        // TODO: Restart, if (this.props.transitions.length > 0)
+        // TODO: Restart, if (this.props.transition.length > 0)
         this.setState({ transitionalProps: this.props.realProps });
         this.forceUpdate();
         this._isInTransition = false;
@@ -48,14 +48,18 @@ class FlipBook extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.transitions.length > 0) {
-      this._runTransitions(this.props.transitions);
+    if (this.props.transition.length > 0) {
+      this._runTransitions(this.props.transition);
     }
   }
 
+  componentWillUpdate() {
+    assertTransition(nextProps.transition || []);
+  }
+
   componentWillReceiveProps(nextProps) {
-    if (nextProps.transitions.length > 0) {
-      this._runTransitions(nextProps.transitions);
+    if (nextProps.transition.length > 0) {
+      this._runTransitions(nextProps.transition);
     }
   }
 
@@ -72,14 +76,11 @@ class FlipBook extends React.Component {
 Object.assign(FlipBook, {
   defaultProps: {
     realProps: {},
-    transitions: [],
+    transition: [],
   },
   propTypes: {
     children: React.PropTypes.func.isRequired,
     realProps: React.PropTypes.object,
-    transitions: React.PropTypes.array,
+    transition: React.PropTypes.array,
   },
 });
-
-
-module.exports = FlipBook;

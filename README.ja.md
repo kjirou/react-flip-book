@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/react-flip-book.svg)](http://badge.fury.io/js/react-flip-book)
 
-A React component for making state transitions from a list of props
+A React component for making state transition from a list of props
 
 ([English](https://github.com/kjirou/react-flip-book))
 
@@ -43,7 +43,7 @@ const realProps = {
   message: 'Finish',
 };
 
-const transitions = [
+const transition = [
   {
     duration: 1000,
     color: 'red',
@@ -61,7 +61,7 @@ const transitions = [
   },
 ];
 
-const transitionalMessage = <FlipBook realProps={ realProps } transitions={ transitions }>
+const transitionalMessage = <FlipBook realProps={ realProps } transition={ transition }>
   { props => <MyAwesomeMessage { ...props } /> }
 </FlipBook>;
 ```
@@ -88,4 +88,4 @@ const transitionalMessage = <FlipBook realProps={ realProps } transitions={ tran
 ## 特徴
 
 - アニメーション対象であるコンポーネントの設計を修正する必要がありません。
-- `transitions` に渡す値を `[]` にすれば、通常の描画処理と全く同じになります。
+- `transition` に渡す値を `[]` にすれば、通常の描画処理と全く同じになります。
