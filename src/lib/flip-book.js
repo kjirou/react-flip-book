@@ -53,7 +53,7 @@ export default class FlipBook extends Component {
     }
   }
 
-  componentWillUpdate() {
+  componentWillUpdate(nextProps) {
     assertTransition(nextProps.transition || []);
   }
 
