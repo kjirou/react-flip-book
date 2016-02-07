@@ -1,30 +1,31 @@
 'use strict';
 
-var FlipBook = require('./lib/react-flip-book');
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-/*
- * Generate transitions for react-flip-book
- * @param {Object} defaultProps
- * @param {Array<Object>} transitionDiffs
- * @return {Array<Object>}
- */
-var generateTransitions = function generateTransitions(defaultProps, transitionDiffs) {
-  var currentProps = Object.assign({}, defaultProps);
-  return transitionDiffs.map(function (diff) {
-    var duration = diff.duration || 0;
-    var diffProps = {};
-    Object.keys(diff).forEach(function (key) {
-      if (key !== 'duration') {
-        diffProps[key] = diff[key];
-      }
-    });
-    currentProps = Object.assign({}, currentProps, diffProps, {
-      duration: duration
-    });
-    return currentProps;
+var _utils = require('./lib/utils');
+
+var _loop = function _loop(_key2) {
+  if (_key2 === "default") return 'continue';
+  Object.defineProperty(exports, _key2, {
+    enumerable: true,
+    get: function get() {
+      return _utils[_key2];
+    }
   });
 };
 
-FlipBook.generateTransitions = generateTransitions;
+for (var _key2 in _utils) {
+  var _ret = _loop(_key2);
 
-module.exports = FlipBook;
+  if (_ret === 'continue') continue;
+}
+
+var _flipBook = require('./lib/flip-book');
+
+var _flipBook2 = _interopRequireDefault(_flipBook);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _flipBook2.default;
