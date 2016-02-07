@@ -1,4 +1,4 @@
-import FlipBook from './lib/react-flip-book';
+import FlipBook from './lib/flip-book';
 
 
 export * from './lib/utils';
