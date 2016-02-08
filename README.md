@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/react-flip-book.svg)](http://badge.fury.io/js/react-flip-book)
 
-A React component for making state transitions from a list of props
+A React component for making state transition from a list of props
 
 ([日本語](https://github.com/kjirou/react-flip-book/blob/master/README.ja.md))
 
@@ -33,7 +33,7 @@ class MyAwesomeMessage extends React.Component {
 }
 ```
 
-..then wrap by `FlipBook` meta-component with both `realProps` and `transitions`.
+..then wrap by `FlipBook` meta-component with both `realProps` and `transition`.
 
 ```js
 import FlipBook from 'react-flip-book';
@@ -43,7 +43,7 @@ const realProps = {
   message: 'Finish',
 };
 
-const transitions = [
+const transition = [
   {
     duration: 1000,
     color: 'red',
@@ -61,7 +61,7 @@ const transitions = [
   },
 ];
 
-const transitionalMessage = <FlipBook realProps={ realProps } transitions={ transitions }>
+const transitionalMessage = <FlipBook realProps={ realProps } transition={ transition }>
   { props => <MyAwesomeMessage { ...props } /> }
 </FlipBook>;
 ```
@@ -88,4 +88,4 @@ In this case, the component will change like this:
 ## Features
 
 - Without changing the original components, you can apply a simple flip animation, such as a cartoon
-- If you set `[]` to `transitions`, that is same as normal rendering
+- If you set `[]` to `transition`, that is same as normal rendering
