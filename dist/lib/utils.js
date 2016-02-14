@@ -168,6 +168,6 @@ var alterTransition = exports.alterTransition = function alterTransition(transit
 var totalDurations = exports.totalDurations = function totalDurations(transition) {
   assertTransition(transition);
   return transition.reduce(function (memo, props) {
-    memo + props.duration;
+    return memo + props.duration;
   }, 0);
 };
