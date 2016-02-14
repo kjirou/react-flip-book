@@ -1,6 +1,6 @@
 {
   "name": "react-flip-book",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A React component for making state transitions from a list of props",
   "main": "dist/index.js",
   "scripts": {
