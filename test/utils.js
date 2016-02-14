@@ -262,7 +262,7 @@ describe('lib/utils.js', () => {
   describe('totalDurations', () => {
 
     it('should be', () => {
-      assert.strictEqual(totalDurations([{ duration: 1 }, { duration: 2 }], 3));
+      assert.strictEqual(totalDurations([{ duration: 1 }, { duration: 2 }]), 3);
     });
   });
 });

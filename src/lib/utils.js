@@ -153,5 +153,5 @@ export const alterTransition = (transition, alterations) => {
 
 export const totalDurations = (transition) => {
   assertTransition(transition);
-  return transition.reduce((memo, props) => { memo + props.duration }, 0);
+  return transition.reduce((memo, props) => { return memo + props.duration; }, 0);
 };
